@@ -7,17 +7,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var product_service_1 = require("./Products/product.service");
 var AppComponent = (function () {
     function AppComponent() {
-        this.pageTitle = 'This is product management';
+        this.pagetitle = 'Angular 4 Sample';
     }
+    AppComponent = __decorate([
+        core_1.Component({
+            selector: 'pm-app',
+            template: "<div> <h1> Sai Siloju {{pagetitle}}</h1>\n\t\t<pm-product> </pm-product>\n\t</div>",
+            providers: [product_service_1.ProductService]
+        })
+    ], AppComponent);
     return AppComponent;
 }());
-AppComponent = __decorate([
-    core_1.Component({
-        selector: 'pm-app',
-        template: "\n\t\t<div> \n\t\t\t<h1>{{pageTitle}}</h1>\n\t\t\t<pm-products></pm-products>\n\t\t</div>\n\t"
-    })
-], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
