@@ -23,7 +23,7 @@ import  {StarComponent} from './shared/star.component';
             },
 
             {
-                path:'products/:id', component: ProductDetailComponent
+                path:'product/:id', component: ProductDetailComponent
             },
             {
                 path: 'welcome', component: WelcomeComponent

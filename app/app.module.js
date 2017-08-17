@@ -31,7 +31,7 @@ var AppModule = (function () {
                         path: 'products', component: product_list_component_1.ProductListComponent
                     },
                     {
-                        path: 'products/:id', component: product_detail_component_1.ProductDetailComponent
+                        path: 'product/:id', component: product_detail_component_1.ProductDetailComponent
                     },
                     {
                         path: 'welcome', component: welcome_component_1.WelcomeComponent
