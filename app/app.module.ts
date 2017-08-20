@@ -10,6 +10,7 @@ import {WelcomeComponent} from './home/welcome.component';
 import { ProductListComponent }  from './Products/product-list.component';
 import {ProductDetailComponent} from "./Products/product-detail.component";
 import {ProductFilterPipe} from './Products/product-filter.pipe';
+import {ProductGuardService} from "./Products/product-guard.service";
 
 import {OrderListComponent} from "./Orders/order-list.component";
 import {OrderDetailComponent} from "./Orders/order-detail.component";
@@ -29,8 +30,9 @@ import  {StarComponent} from './shared/star.component';
             },
 
             {
-                path:'product/:id', component: ProductDetailComponent
+                path:'product/:id', canActivate:[ProductGuardService], component: ProductDetailComponent
             },
+
             {
                 path:'orders', component: OrderListComponent
             },
@@ -53,6 +55,7 @@ import  {StarComponent} from './shared/star.component';
     declarations: [
         AppComponent, ProductListComponent, ProductFilterPipe, OrderFilterPipe, StarComponent, WelcomeComponent, ProductDetailComponent,OrderDetailComponent, OrderListComponent
     ],
+    providers: [ProductGuardService],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

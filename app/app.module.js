@@ -16,6 +16,7 @@ var welcome_component_1 = require("./home/welcome.component");
 var product_list_component_1 = require("./Products/product-list.component");
 var product_detail_component_1 = require("./Products/product-detail.component");
 var product_filter_pipe_1 = require("./Products/product-filter.pipe");
+var product_guard_service_1 = require("./Products/product-guard.service");
 var order_list_component_1 = require("./Orders/order-list.component");
 var order_detail_component_1 = require("./Orders/order-detail.component");
 var order_filter_pipe_1 = require("./Orders/order-filter.pipe");
@@ -34,7 +35,7 @@ var AppModule = (function () {
                         path: 'products', component: product_list_component_1.ProductListComponent
                     },
                     {
-                        path: 'product/:id', component: product_detail_component_1.ProductDetailComponent
+                        path: 'product/:id', canActivate: [product_guard_service_1.ProductGuardService], component: product_detail_component_1.ProductDetailComponent
                     },
                     {
                         path: 'orders', component: order_list_component_1.OrderListComponent
@@ -56,6 +57,7 @@ var AppModule = (function () {
             declarations: [
                 app_component_1.AppComponent, product_list_component_1.ProductListComponent, product_filter_pipe_1.ProductFilterPipe, order_filter_pipe_1.OrderFilterPipe, star_component_1.StarComponent, welcome_component_1.WelcomeComponent, product_detail_component_1.ProductDetailComponent, order_detail_component_1.OrderDetailComponent, order_list_component_1.OrderListComponent
             ],
+            providers: [product_guard_service_1.ProductGuardService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
