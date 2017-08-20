@@ -8,6 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var product_service_1 = require("./Products/product.service");
+var order_service_1 = require("./Orders/order.service");
 var AppComponent = (function () {
     function AppComponent() {
         this.pagetitle = 'Angular 4 Sample';
@@ -15,8 +16,8 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'pm-app',
-            template: "<div>\n        <nav class=\"navbar navbar-inverse\">\n            <div class=\"container-fluid\">\n                <a class=\"navbar-brand\"> {{pagetitle}}</a>\n                <ul class=\"nav navbar-nav\">\n                    <li>\n                        <a [routerLink]=\"['/welcome']\">Home</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/products']\">Products</a>\n                    </li>\n                    \n                </ul>\n            </div>\n        </nav>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    </div>",
-            providers: [product_service_1.ProductService]
+            template: "<div>\n        <nav class=\"navbar navbar-inverse\">\n            <div class=\"container-fluid\">\n                <a class=\"navbar-brand\"> {{pagetitle}}</a>\n                <ul class=\"nav navbar-nav\">\n                    <li>\n                        <a [routerLink]=\"['/welcome']\">Home</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/products']\">Products</a>\n                    </li>\n                    <li>\n                        <a [routerLink]=\"['/orders']\">Orders</a>\n                    </li>\n                </ul>\n            </div>\n        </nav>\n        <div class=\"container\">\n            <router-outlet></router-outlet>\n        </div>\n    </div>",
+            providers: [product_service_1.ProductService, order_service_1.OrderService]
         })
     ], AppComponent);
     return AppComponent;

@@ -6,9 +6,15 @@ import  {RouterModule} from "@angular/router";
 
 import { AppComponent }  from './app.component';
 import {WelcomeComponent} from './home/welcome.component';
+
 import { ProductListComponent }  from './Products/product-list.component';
 import {ProductDetailComponent} from "./Products/product-detail.component";
 import {ProductFilterPipe} from './Products/product-filter.pipe';
+
+import {OrderListComponent} from "./Orders/order-list.component";
+import {OrderDetailComponent} from "./Orders/order-detail.component";
+import {OrderFilterPipe} from "./Orders/order-filter.pipe";
+
 import  {StarComponent} from './shared/star.component';
 
 
@@ -26,6 +32,12 @@ import  {StarComponent} from './shared/star.component';
                 path:'product/:id', component: ProductDetailComponent
             },
             {
+                path:'orders', component: OrderListComponent
+            },
+            {
+                path: 'orders/:id', component: OrderDetailComponent
+            },
+            {
                 path: 'welcome', component: WelcomeComponent
             },
             {
@@ -33,12 +45,13 @@ import  {StarComponent} from './shared/star.component';
             },
             {
                 path: '**', redirectTo: 'welcome', pathMatch:'full'
-            }
+            },
+
         ])
 
     ],
     declarations: [
-        AppComponent, ProductListComponent, ProductFilterPipe, StarComponent, WelcomeComponent, ProductDetailComponent
+        AppComponent, ProductListComponent, ProductFilterPipe, OrderFilterPipe, StarComponent, WelcomeComponent, ProductDetailComponent,OrderDetailComponent, OrderListComponent
     ],
     bootstrap: [ AppComponent ]
 })
