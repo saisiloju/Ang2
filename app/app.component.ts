@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {ProductService} from "./Products/product.service";
 import {OrderService} from "./Orders/order.service";
 
 
@@ -27,7 +26,7 @@ import {OrderService} from "./Orders/order.service";
             <router-outlet></router-outlet>
         </div>
     </div>`,
-    providers : [ProductService, OrderService]
+    providers : [ OrderService]
 })
 
 export class AppComponent{

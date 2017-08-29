@@ -7,16 +7,12 @@ import  {RouterModule} from "@angular/router";
 import { AppComponent }  from './app.component';
 import {WelcomeComponent} from './home/welcome.component';
 
-import { ProductListComponent }  from './Products/product-list.component';
-import {ProductDetailComponent} from "./Products/product-detail.component";
-import {ProductFilterPipe} from './Products/product-filter.pipe';
-import {ProductGuardService} from "./Products/product-guard.service";
+import {ProductModule} from "./Products/product.module";
+import {OrderModule} from "./Orders/order.module";
 
-import {OrderListComponent} from "./Orders/order-list.component";
-import {OrderDetailComponent} from "./Orders/order-detail.component";
-import {OrderFilterPipe} from "./Orders/order-filter.pipe";
 
-import  {StarComponent} from './shared/star.component';
+
+
 
 
 @NgModule({
@@ -25,20 +21,8 @@ import  {StarComponent} from './shared/star.component';
         FormsModule,
         HttpModule,
         RouterModule.forRoot([
-            {
-                path:'products', component: ProductListComponent
-            },
 
-            {
-                path:'product/:id', canActivate:[ProductGuardService], component: ProductDetailComponent
-            },
 
-            {
-                path:'orders', component: OrderListComponent
-            },
-            {
-                path: 'orders/:id', component: OrderDetailComponent
-            },
             {
                 path: 'welcome', component: WelcomeComponent
             },
@@ -47,15 +31,16 @@ import  {StarComponent} from './shared/star.component';
             },
             {
                 path: '**', redirectTo: 'welcome', pathMatch:'full'
-            },
+            }
 
-        ])
+        ]),
+        ProductModule, OrderModule
 
     ],
     declarations: [
-        AppComponent, ProductListComponent, ProductFilterPipe, OrderFilterPipe, StarComponent, WelcomeComponent, ProductDetailComponent,OrderDetailComponent, OrderListComponent
+        AppComponent, WelcomeComponent
     ],
-    providers: [ProductGuardService],
+
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

@@ -13,14 +13,8 @@ var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var app_component_1 = require("./app.component");
 var welcome_component_1 = require("./home/welcome.component");
-var product_list_component_1 = require("./Products/product-list.component");
-var product_detail_component_1 = require("./Products/product-detail.component");
-var product_filter_pipe_1 = require("./Products/product-filter.pipe");
-var product_guard_service_1 = require("./Products/product-guard.service");
-var order_list_component_1 = require("./Orders/order-list.component");
-var order_detail_component_1 = require("./Orders/order-detail.component");
-var order_filter_pipe_1 = require("./Orders/order-filter.pipe");
-var star_component_1 = require("./shared/star.component");
+var product_module_1 = require("./Products/product.module");
+var order_module_1 = require("./Orders/order.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -32,18 +26,6 @@ var AppModule = (function () {
                 http_1.HttpModule,
                 router_1.RouterModule.forRoot([
                     {
-                        path: 'products', component: product_list_component_1.ProductListComponent
-                    },
-                    {
-                        path: 'product/:id', canActivate: [product_guard_service_1.ProductGuardService], component: product_detail_component_1.ProductDetailComponent
-                    },
-                    {
-                        path: 'orders', component: order_list_component_1.OrderListComponent
-                    },
-                    {
-                        path: 'orders/:id', component: order_detail_component_1.OrderDetailComponent
-                    },
-                    {
                         path: 'welcome', component: welcome_component_1.WelcomeComponent
                     },
                     {
@@ -51,13 +33,13 @@ var AppModule = (function () {
                     },
                     {
                         path: '**', redirectTo: 'welcome', pathMatch: 'full'
-                    },
-                ])
+                    }
+                ]),
+                product_module_1.ProductModule, order_module_1.OrderModule
             ],
             declarations: [
-                app_component_1.AppComponent, product_list_component_1.ProductListComponent, product_filter_pipe_1.ProductFilterPipe, order_filter_pipe_1.OrderFilterPipe, star_component_1.StarComponent, welcome_component_1.WelcomeComponent, product_detail_component_1.ProductDetailComponent, order_detail_component_1.OrderDetailComponent, order_list_component_1.OrderListComponent
+                app_component_1.AppComponent, welcome_component_1.WelcomeComponent
             ],
-            providers: [product_guard_service_1.ProductGuardService],
             bootstrap: [app_component_1.AppComponent]
         })
     ], AppModule);
